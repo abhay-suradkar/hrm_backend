@@ -9,3 +9,6 @@ class userSignup(BaseModel):
     password : constr(min_length=6) # type: ignore
     confirm_password: constr(min_length=6) # type: ignore
     
+class userLogin(BaseModel):
+    email: EmailStr
+    password : constr(min_length=6) # type: ignore

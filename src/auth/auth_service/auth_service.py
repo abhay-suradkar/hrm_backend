@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from src.auth.auth_model.auth_model import Users
-from src.auth.auth_schema.auth_schema import userSignup
+from src.auth.auth_schema.auth_schema import userSignup, userLogin
 from src.db_session.database import get_db
-from src.auth_utils import hash_password
+from src.auth_utils import hash_password, verify_password
 
 class authService:
     def signup_auth(users : userSignup, db : Session=Depends(get_db)):
@@ -21,5 +21,17 @@ class authService:
             db.add(new_user)
             db.commit()
             return {"message" : "User register sucessfully"}
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+        
+    def login_auth(users : userLogin, db : Session=Depends(get_db)):
+        try:
+            exisiting_user= db.query(Users).filter(Users.email == users.email).first()
+            if not exisiting_user:
+                raise HTTPException(status_code=400, detail="Invalid Email")
+            
+            if not verify_password(users.password, exisiting_user.password):
+                raise HTTPException(status_code=400, detail="Invalid Password")
+            return{"message" : "User Login sucessfully"}
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
