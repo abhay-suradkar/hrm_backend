@@ -12,8 +12,8 @@ class Users(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4, unique= True, nullable=False)
 
     name = Column(String(), nullable=True)
-    phone = Column(String(), nullable=True)
+    phone = Column(String(225), nullable=True)
     email = Column(String(), nullable=True)
-    status = Column(Boolean, nullable=False)
+    status = Column(Boolean, nullable=False, default=True)
     role = Column(String(50), nullable=False)
     password = Column(String(50), nullable=False)
