@@ -17,7 +17,6 @@ load_dotenv()
 
 app = FastAPI()
 
-# ✅ CORS Middleware setup
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Or use your domain in production
