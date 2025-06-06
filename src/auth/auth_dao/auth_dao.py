@@ -9,7 +9,7 @@ def create_user(db: Session, name: str, phone: str, email: EmailStr, status: boo
         new_user = Users(
             name=name,
             phone=phone,
-            email=email,
+            email=email, 
             status=status,
             role=role,
             password=hashed_password

@@ -24,4 +24,5 @@ def get_db():
 
 def init_db():
     from src.auth.auth_model.auth_model import Users
+    from src.Departments.dep_model.dep_model import Departments
     Base.metadata.create_all(bind=engine)
