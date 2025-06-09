@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.db_session.database import init_db
 from src.auth.auth_api.auth_api import router as authAPI
 from src.Departments.dep_api.dep_api import router as DepAPI
+from src.Designation.design_api.design_api import router as DesignAPI
 import os
 from dotenv import load_dotenv
 import sys
@@ -29,3 +30,4 @@ app.add_middleware(
 init_db()
 app.include_router(authAPI)
 app.include_router(DepAPI)
+app.include_router(DesignAPI)

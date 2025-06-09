@@ -15,3 +15,4 @@ class Departments(Base):
     dep_head_id = Column(UUID(as_uuid=True), ForeignKey("dev.users.id", ondelete="CASCADE"), nullable=True)
 
     dep_head = relationship("Users", foreign_keys=[dep_head_id], back_populates="managed_department")
+    designations = relationship("Designation", back_populates="department")
