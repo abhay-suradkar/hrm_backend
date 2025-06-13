@@ -4,6 +4,8 @@ from src.db_session.database import init_db
 from src.auth.auth_api.auth_api import router as authAPI
 from src.Departments.dep_api.dep_api import router as DepAPI
 from src.Designation.design_api.design_api import router as DesignAPI
+from src.holidays.holiday_api.holiday_api import router as HolidayAPI
+from src.shifts.shifts_api.shifts_api import router as ShiftAPI
 import os
 from dotenv import load_dotenv
 import sys
@@ -31,3 +33,5 @@ init_db()
 app.include_router(authAPI)
 app.include_router(DepAPI)
 app.include_router(DesignAPI)
+app.include_router(HolidayAPI)
+app.include_router(ShiftAPI)

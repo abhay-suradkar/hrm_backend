@@ -26,4 +26,6 @@ def init_db():
     from src.auth.auth_model.auth_model import Users
     from src.Departments.dep_model.dep_model import Departments
     from src.Designation.design_model.design_model import Designation
+    from src.holidays.holiday_model.holiday_model import Holidays
+    from src.shifts.shift_model.shift_model import Shifts
     Base.metadata.create_all(bind=engine)
