@@ -6,6 +6,7 @@ from src.Departments.dep_api.dep_api import router as DepAPI
 from src.Designation.design_api.design_api import router as DesignAPI
 from src.holidays.holiday_api.holiday_api import router as HolidayAPI
 from src.shifts.shifts_api.shifts_api import router as ShiftAPI
+from src.attendance.attendance_api.attendance_api import router as APIAttendance
 import os
 from dotenv import load_dotenv
 import sys
@@ -35,3 +36,4 @@ app.include_router(DepAPI)
 app.include_router(DesignAPI)
 app.include_router(HolidayAPI)
 app.include_router(ShiftAPI)
+app.include_router(APIAttendance)

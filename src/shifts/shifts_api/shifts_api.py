@@ -67,7 +67,7 @@ class ShiftAPI:
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Internal Server Error {str(e)}")
         
-    @router.delete("/", status_code=200)
+    @router.delete("/DeleteShift")
     def delete_shift(data: DeleteShift, db: Session = Depends(get_db)):
         try:
             shift = db.query(Shifts).filter(Shifts.shift_id == data.shift_id).first()

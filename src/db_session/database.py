@@ -28,4 +28,5 @@ def init_db():
     from src.Designation.design_model.design_model import Designation
     from src.holidays.holiday_model.holiday_model import Holidays
     from src.shifts.shift_model.shift_model import Shifts
+    from src.attendance.attendance_model.attendance_model import Attendance
     Base.metadata.create_all(bind=engine)
